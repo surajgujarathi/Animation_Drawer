@@ -1,3 +1,4 @@
+import 'package:animation_drawer/view_all_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -70,7 +71,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [TextButton(child: Text("ViewAll"),onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder:(context)=>ViewAll()));
+                  
+                },)],),
+                const SizedBox(
+                height: 20,
               ),
               const AnimalGrid(
                 image1: 'assets/monkey.png',
