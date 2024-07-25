@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:animation_drawer/setting_screen.dart';
 import 'package:flutter/material.dart';
 
 class DrawerScreen extends StatefulWidget {
@@ -42,48 +43,51 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
               ],
             ),
-            const Column(
+             Column(
               children: <Widget>[
                 NewRow(
                   text: 'Settings',
-                  icon: Icons.error_outline,
+                  icon: Icons.settings, onTap: () { },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 NewRow(
                   text: 'Profile',
-                  icon: Icons.person_outline,
+                  icon: Icons.person_outline, onTap: () {  },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 NewRow(
                   text: 'Messages',
-                  icon: Icons.chat_bubble_outline,
+                  icon: Icons.chat_bubble_outline, onTap: () {  },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 NewRow(
                   text: 'Saved',
-                  icon: Icons.bookmark_border,
+                  icon: Icons.bookmark_border, onTap: () {  },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 NewRow(
                   text: 'Favorites',
-                  icon: Icons.favorite_border,
+                  icon: Icons.favorite_border, onTap: () {  },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 NewRow(
                   text: 'Hint',
                   icon: Icons.lightbulb_outline,
+                  onTap: () {
+                    
+                  },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
               ],
@@ -113,19 +117,22 @@ class _DrawerScreenState extends State<DrawerScreen> {
 class NewRow extends StatelessWidget {
   final IconData icon;
   final String text;
+  final VoidCallback onTap;
 
   const NewRow({
     Key? key,
     required this.icon,
     required this.text,
+    required this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Icon(
-          icon,
+        IconButton(
+          onPressed: onTap,
+          icon: Icon(icon),
           color: Colors.white,
         ),
         const SizedBox(
@@ -134,7 +141,7 @@ class NewRow extends StatelessWidget {
         Text(
           text,
           style: const TextStyle(color: Colors.white),
-        )
+        ),
       ],
     );
   }

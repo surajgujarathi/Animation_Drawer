@@ -14,6 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
+    
       // Apply translation and scaling to the container
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(isDrawerOpen ? 0.85 : 1.00)
@@ -64,64 +65,61 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Color.fromARGB(221, 112, 65, 65),
                         decoration: TextDecoration.none),
                   ),
-                  Container(), // Placeholder to balance the Row
-                ],
+                 Container(), // Placeholder to balance the Row
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            // Display a grid of animal images and labels
-            const NewPadding(
-              image1: 'assets/monkey.png',
-              text1: 'Monkey',
-              image2: 'assets/fox.png',
-              text2: 'Fox',
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            const NewPadding(
-              image1: 'assets/cat.png',
-              text1: 'Cat',
-              image2: 'assets/dog.png',
-              text2: 'Dog',
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            const NewPadding(
-              image1: 'assets/fish.png',
-              text1: 'Fish',
-              image2: 'assets/turtle.png',
-              text2: 'Turtle',
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            const NewPadding(
-              image1: 'assets/bird.png',
-              text1: 'Bird',
-              image2: 'assets/owl.png',
-              text2: 'Owl',
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-          ],
+              const SizedBox(
+                height: 40,
+              ),
+              const AnimalGrid(
+                image1: 'assets/monkey.png',
+                text1: 'Monkey',
+                image2: 'assets/fox.png',
+                text2: 'Fox',
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              const AnimalGrid(
+                image1: 'assets/cat.png',
+                text1: 'Cat',
+                image2: 'assets/dog.png',
+                text2: 'Dog',
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              const AnimalGrid(
+                image1: 'assets/fish.png',
+                text1: 'Fish',
+                image2: 'assets/turtle.png',
+                text2: 'Turtle',
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              const AnimalGrid(
+                image1: 'assets/bird.png',
+                text1: 'Bird',
+                image2: 'assets/owl.png',
+                text2: 'Owl',
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
-}
+      );}}
 
-class NewPadding extends StatelessWidget {
+class AnimalGrid extends StatelessWidget {
   final String image1;
   final String text1;
   final String image2;
   final String text2;
 
-  const NewPadding({
+  const AnimalGrid({
     Key? key,
     required this.image1,
     required this.text1,
@@ -136,79 +134,126 @@ class NewPadding extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          // First image container
-          Container(
-            width: 150,
-            height: 150,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.1),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: const Offset(0, 0),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: ImageScreen(image: image1, text: text1),
+                    );
+                  },
                 ),
-              ],
-            ),
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: Image(
-                    height: 100,
-                    width: 100,
-                    image: AssetImage(image1),
-                  ),
-                ),
-                Text(
-                  text1,
-                  style: const TextStyle(
-                      color: Colors.black87,
-                      fontSize: 15,
-                      decoration: TextDecoration.none),
-                )
-              ],
-            ),
+              );
+            },
+            child: AnimalCard(image: image1, text: text1),
           ),
-          // Second image container
-          Container(
-            width: 150,
-            height: 150,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.1),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: const Offset(0, 0),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: ImageScreen(image: image2, text: text2),
+                    );
+                  },
                 ),
-              ],
-            ),
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: Image(
-                    height: 100,
-                    width: 100,
-                    image: AssetImage(image2),
-                  ),
-                ),
-                Text(
-                  text2,
-                  style: const TextStyle(
-                      color: Colors.black87,
-                      fontSize: 15,
-                      decoration: TextDecoration.none),
-                )
-              ],
-            ),
+              );
+            },
+            child: AnimalCard(image: image2, text: text2),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class AnimalCard extends StatelessWidget {
+  final String image;
+  final String text;
+
+  const AnimalCard({
+    Key? key,
+    required this.image,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 150,
+      height: 150,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: const Offset(0, 0),
+          ),
+        ],
+      ),
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Hero(
+              tag: image,
+              child: Image(
+                height: 100,
+                width: 100,
+                image: AssetImage(image),
+              ),
+            ),
+          ),
+          Text(
+            text,
+            style: const TextStyle(
+                color: Colors.black87,
+                fontSize: 15,
+                decoration: TextDecoration.none),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class ImageScreen extends StatelessWidget {
+  final String image;
+  final String text;
+
+  const ImageScreen({Key? key, required this.image, required this.text}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Hero(
+              tag: image,
+              child: Image(
+                image: AssetImage(image),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Text(
+              text,
+              style: const TextStyle(
+                  fontSize: 24,
+                  color: Colors.black87,
+                  decoration: TextDecoration.none),
+            ),
+          ],
+        ),
       ),
     );
   }
