@@ -1,7 +1,8 @@
 # animation_drawer
 
-A new Flutter project.
 
+## Screenshot 1  
+<img src='https://github.com/surajgujarathi/animation_drawer/blob/master/assets/screenshot1.png' height=400/> 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
