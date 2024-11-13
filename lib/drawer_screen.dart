@@ -42,39 +42,44 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
               ],
             ),
-             Column(
+            Column(
               children: <Widget>[
                 NewRow(
                   text: 'Settings',
-                  icon: Icons.settings, onTap: () { },
+                  icon: Icons.settings,
+                  onTap: () {},
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 NewRow(
                   text: 'Profile',
-                  icon: Icons.person_outline, onTap: () {  },
+                  icon: Icons.person_outline,
+                  onTap: () {},
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 NewRow(
                   text: 'Messages',
-                  icon: Icons.chat_bubble_outline, onTap: () {  },
+                  icon: Icons.chat_bubble_outline,
+                  onTap: () {},
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 NewRow(
                   text: 'Saved',
-                  icon: Icons.bookmark_border, onTap: () {  },
+                  icon: Icons.bookmark_border,
+                  onTap: () {},
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 NewRow(
                   text: 'Favorites',
-                  icon: Icons.favorite_border, onTap: () {  },
+                  icon: Icons.favorite_border,
+                  onTap: () {},
                 ),
                 const SizedBox(
                   height: 20,
@@ -82,9 +87,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 NewRow(
                   text: 'Hint',
                   icon: Icons.lightbulb_outline,
-                  onTap: () {
-                    
-                  },
+                  onTap: () {},
                 ),
                 const SizedBox(
                   height: 20,

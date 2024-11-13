@@ -15,16 +15,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-    
       // Apply translation and scaling to the container
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(isDrawerOpen ? 0.85 : 1.00)
         // RotateZ expects radians, so use a small value for a slight rotation
-        ..rotateZ(isDrawerOpen ? -50 : 0), 
+        ..rotateZ(isDrawerOpen ? -50 : 0),
       duration: const Duration(milliseconds: 200),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: isDrawerOpen ? BorderRadius.circular(40) : BorderRadius.circular(0),
+        borderRadius:
+            isDrawerOpen ? BorderRadius.circular(40) : BorderRadius.circular(0),
       ),
       child: SingleChildScrollView(
         child: Column(
@@ -66,62 +66,70 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Color.fromARGB(221, 112, 65, 65),
                         decoration: TextDecoration.none),
                   ),
-                 Container(), // Placeholder to balance the Row
-                  ],
-                ),
+                  Container(), // Placeholder to balance the Row
+                ],
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [TextButton(child: Text("ViewAll"),onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder:(context)=>ViewAll()));
-                  
-                },)],),
-                const SizedBox(
-                height: 20,
-              ),
-              const AnimalGrid(
-                image1: 'assets/monkey.png',
-                text1: 'Monkey',
-                image2: 'assets/fox.png',
-                text2: 'Fox',
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              const AnimalGrid(
-                image1: 'assets/cat.png',
-                text1: 'Cat',
-                image2: 'assets/dog.png',
-                text2: 'Dog',
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              const AnimalGrid(
-                image1: 'assets/fish.png',
-                text1: 'Fish',
-                image2: 'assets/turtle.png',
-                text2: 'Turtle',
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              const AnimalGrid(
-                image1: 'assets/bird.png',
-                text1: 'Bird',
-                image2: 'assets/owl.png',
-                text2: 'Owl',
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  child: Text("ViewAll"),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ViewAll()));
+                  },
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const AnimalGrid(
+              image1: 'assets/monkey.png',
+              text1: 'Monkey',
+              image2: 'assets/fox.png',
+              text2: 'Fox',
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            const AnimalGrid(
+              image1: 'assets/cat.png',
+              text1: 'Cat',
+              image2: 'assets/dog.png',
+              text2: 'Dog',
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            const AnimalGrid(
+              image1: 'assets/fish.png',
+              text1: 'Fish',
+              image2: 'assets/turtle.png',
+              text2: 'Turtle',
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            const AnimalGrid(
+              image1: 'assets/bird.png',
+              text1: 'Bird',
+              image2: 'assets/owl.png',
+              text2: 'Owl',
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+          ],
         ),
-      );}}
+      ),
+    );
+  }
+}
 
 class AnimalGrid extends StatelessWidget {
   final String image1;
@@ -239,7 +247,8 @@ class ImageScreen extends StatelessWidget {
   final String image;
   final String text;
 
-  const ImageScreen({Key? key, required this.image, required this.text}) : super(key: key);
+  const ImageScreen({Key? key, required this.image, required this.text})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
