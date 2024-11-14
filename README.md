@@ -18,7 +18,7 @@
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+In this project I have used AnimatedContainer,PageRouteBuilder and ListWheelScrollView
 
 A few resources to get you started if this is your first Flutter project:
 
