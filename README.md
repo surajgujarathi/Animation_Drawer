@@ -2,7 +2,15 @@
 
 
 ## Screenshot 1  
-<img src='https://github.com/surajgujarathi/animation_drawer/blob/master/assets/screenshot1.png' height=400/> 
+<img src='https://github.com/surajgujarathi/animation_drawer/blob/master/assets/screenshot1.png' height=400/>     
+
+
+
+## Screenshot 2
+<img src='https://github.com/surajgujarathi/animation_drawer/blob/master/assets/screenshot2.png' height=400/> 
+
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
