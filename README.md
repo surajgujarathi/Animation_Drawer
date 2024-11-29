@@ -12,7 +12,7 @@
 
 
 
-## Screenshot 3
+## Screenshot  3
 <img src='https://github.com/surajgujarathi/animation_drawer/blob/master/assets/screenshot3.png' height=400/> 
 
 
